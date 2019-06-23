@@ -8,13 +8,12 @@
 using namespace std;
 
 
-/*************************************************/
-/*			Author:   Sandra Priller			 */
-/*			Date:	  25.02.2019				 */
-/*			Program:  Sign and Verify	 		 */
-/*					  a Message					 */
-/*												 */
-/*************************************************/
+/********************************************************/
+/*		Author:   Sandra Priller		*/
+/*		Date:	  25.02.2019			*/
+/*		Program:  Sign and Verify a Message	*/
+/*							*/
+/********************************************************/
 
 
 void libsodium_to_GMP(const unsigned char (&libsodium_value) [crypto_hash_sha512_BYTES], mpz_class &hashValue) {
