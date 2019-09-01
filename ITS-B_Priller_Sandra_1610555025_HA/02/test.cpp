@@ -7,20 +7,20 @@
 using namespace std;
 
 
-/*************************************************/				//Buchstabenhäufigkeit in Deutsch (gerundet)
-/*			Author:   Sandra Priller			 */
-/*			Date:	  21.02.2019				 */				// E	17%		D	5%		O	3%		V	1%
-/*			Program:  Text-Encryption	 		 */				// N	10%		H	5%		B	2%		J	0%
-/*					  Vigenere-Quadrat			 */				// I	 8%		U	4%		W	2%		Y	0%
-/*												 */				// S	 7%		L	3%		F	2%		X	0%
-/*************************************************/				// R	 7%		C	3%		K	1%		Q	0%
-																// A	 7%		G	3%		Z	1%
-																// T	 6%		M	3%		P	1%
+/*****************************************************/				//BuchstabenhÃ¤ufigkeit in Deutsch (gerundet)
+/*		Author:   Sandra Priller	     */
+/*		Date:	  21.02.2019		     */				// E	17%		D	5%		O	3%		V	1%
+/*		Program:  Text-Encryption	     */				// N	10%		H	5%		B	2%		J	0%
+/*			  Vigenere-Quadrat	     */				// I	 8%		U	4%		W	2%		Y	0%
+/*						     */				// S	 7%		L	3%		F	2%		X	0%
+/*****************************************************/				// R	 7%		C	3%		K	1%		Q	0%
+										// A	 7%		G	3%		Z	1%
+										// T	 6%		M	3%		P	1%
 /*Position im Alphabet: 6 21 11  23 9  6   14 20 6
 Buchstaben: 			G V  L	 X	J  G   O  U  G
-Schlüssel:				K R  Y	 K  R  Y   K  R  Y
-Position:			   10 17 24  10 17 24  10 17 24
-Klartext:				W E  N	 N	S  I   E  D  I
+SchlÃ¼ssel:			K R  Y	 K  R  Y   K  R  Y
+Position:			10 17 24  10 17 24  10 17 24
+Klartext:			W   E  N   N  S  I   E  D  I
 
 Bsp.: 10-1 = 9; 25-9 = 16; 16+6 = 22 -> W;
 	  21-17 = 4 -> E
@@ -28,11 +28,11 @@ Bsp.: 10-1 = 9; 25-9 = 16; 16+6 = 22 -> W;
 
 //================================================
 
-vector<char> OpenFile(ifstream &datei) {		//File öffnen und zeichenweises einlesen
+vector<char> OpenFile(ifstream &datei) {		//File Ã¶ffnen und zeichenweises einlesen
 	vector<char> cipherComplete;
 	char c = 0;
 
-	while(datei.get(c)) {						//Der C++ Programmierer, Ulrich Breymann, S. 420 (Zeile 46 und 47)
+	while(datei.get(c)) {				//Der C++ Programmierer, Ulrich Breymann, S. 420 (Zeile 46 und 47)
 		cipherComplete.push_back(c);
 	}
 
@@ -52,17 +52,17 @@ void PrintVector(vector<char> cipherComplete) {		//Ausgabe des Textes mit Sonder
 
 //==============================
 
-string KeyMapping(string strCipher, string key) {		//Key sooft in string einfügen, bis string mappedKey die gleiche Größe
-	string mappedKey;									//wie string strCipher hat
+string KeyMapping(string strCipher, string key) {		//Key sooft in string einfÃ¼gen, bis string mappedKey die gleiche GrÃ¶ÃŸe
+	string mappedKey;					//wie string strCipher hat
 
-	for(size_t i = 0; i < key.size(); i++) {			//Wenn Schlüssel in Kleinbuchstaben => dann in Großbuchstaben transformieren
+	for(size_t i = 0; i < key.size(); i++) {	        //Wenn SchlÃ¼ssel in Kleinbuchstaben => dann in GroÃŸbuchstaben transformieren
 		if(islower(key[i])) {
 			transform(key.begin(), key.end(), key.begin(), ::toupper);
 		}
 	}
 
 	for(size_t i = 0, j = 0; i < strCipher.size(); i++) {
-		if(!isalpha(strCipher[i])) {							//alle Sonderzeichen ignorieren und unverändert übernehmen
+		if(!isalpha(strCipher[i])) {			//alle Sonderzeichen ignorieren und unverÃ¤ndert Ã¼bernehmen
 			mappedKey += strCipher[i];
 
 		} else {
@@ -82,7 +82,7 @@ string KeyMapping(string strCipher, string key) {		//Key sooft in string einfüge
 	return mappedKey;
 }
 
-vector<vector<int> > VigenereQuadrat() {				//Erstellen der Vigenere-Tabelle und einlesen in 2D-Vektor
+vector<vector<int> > VigenereQuadrat() {		//Erstellen der Vigenere-Tabelle und einlesen in 2D-Vektor
 	int rows = 26;
 	int columns = 26;
 	vector<vector<int> > vigQuad(rows, vector<int>(columns));
@@ -120,7 +120,7 @@ void PrintVigTable(vector<vector<int> > vigQuad) {		//Vigenere-Tabelle ausgeben
 
 //================================
 
-string Decryption(string strCipher, string mappedKey) {							//Entschlüsselung des Ciphertextes
+string Decryption(string strCipher, string mappedKey) {		//EntschlÃ¼sselung des Ciphertextes
 	string decryptedText;
 
 	for(size_t i = 0, j = 0; i < strCipher.size(); i++, j++) {
@@ -135,11 +135,11 @@ string Decryption(string strCipher, string mappedKey) {							//Entschlüsselung 
 
 //================================
 
-string Encryption(vector<char> plainText, string mappedKey, vector<vector<int> > vigQuad) {		//Verschlüsselung des Klartextes anhand der Vigenere-Tabelle;
+string Encryption(vector<char> plainText, string mappedKey, vector<vector<int> > vigQuad) {    //VerschlÃ¼sselung des Klartextes anhand der Vigenere-Tabelle;
 	string strPlain(plainText.begin(),plainText.end());
 	string encryptedText;
 	string ae = "AE", oe = "OE", ue = "UE";
-	string a = "Ä", o = "Ö", u = "Ü";
+	string a = "Ã„", o = "Ã–", u = "Ãœ";
 	size_t start_pos = 0;
 
 
@@ -185,7 +185,7 @@ string Encryption(vector<char> plainText, string mappedKey, vector<vector<int> >
 
 string Umlaute(string decryptedText) {			//ae, oe, ue durch Umlaute ersetzen
 	string ae = "AE", oe = "OE", ue = "UE";
-	string a = "Ä", o = "Ö", u = "Ü";
+	string a = "Ã„", o = "Ã–", u = "Ãœ";
 	size_t start_pos = 0;
 
 
@@ -218,14 +218,14 @@ string Umlaute(string decryptedText) {			//ae, oe, ue durch Umlaute ersetzen
 
 //==================================
 
-void SaveTextInFile(ofstream &ausgabe, string decryptedText) {			//Entschlüsselten Text in Datei schreiben
+void SaveTextInFile(ofstream &ausgabe, string decryptedText) {			//EntschlÃ¼sselten Text in Datei schreiben
 	ausgabe<<decryptedText;
 	ausgabe.close();
 }
 
 //================================
 
-vector<char> PrintDecryption(ofstream &ausgabe, string decryptedText, ifstream &plain) {	//Auslesen der Datei des entschlüsselten Textes am Bildschirm
+vector<char> PrintDecryption(ofstream &ausgabe, string decryptedText, ifstream &plain) {	//Auslesen der Datei des entschlÃ¼sselten Textes am Bildschirm
 	SaveTextInFile(ausgabe, decryptedText);
 	vector<char> plainText;
 	vector<char>::iterator i;
@@ -251,11 +251,11 @@ int main(const int argc, const char *const argv[]) {
 
 
 	if(argc < 4 || argc > 4) {
-		cerr << "Sie haben zu wenig/viele Argumente übergeben!" <<endl;
+		cerr << "Sie haben zu wenig/viele Argumente Ã¼bergeben!" <<endl;
 		cerr << "Argument 1: <Programmname>" <<endl;
 		cerr << "Argument 2: <Eingabedateipfad>" <<endl;
 		cerr << "Argument 3: <Ausgabedateipfad>" <<endl;
-		cerr << "Argument 4: <Schlüssel>" <<endl;
+		cerr << "Argument 4: <SchlÃ¼ssel>" <<endl;
 
 		return 1;
 
@@ -265,12 +265,12 @@ int main(const int argc, const char *const argv[]) {
 
 	} else {
 		ifstream datei(argv[1]);
-		ofstream ausgabe(argv[2], ofstream::trunc);			//trunc => Dateiinhalt vorher immer löschen, bevor geschrieben wird
+		ofstream ausgabe(argv[2], ofstream::trunc);			//trunc => Dateiinhalt vorher immer lÃ¶schen, bevor geschrieben wird
 		ifstream plain(argv[2]);
-		key = argv[3];										//Schlüssel ist KRY
+		key = argv[3];							//SchlÃ¼ssel ist KRY
 
 		if(datei.bad()) {
-			cerr << "Datei konnte nicht geöffnet werden!" <<endl;
+			cerr << "Datei konnte nicht geÃ¶ffnet werden!" <<endl;
 			return 1;
 
 		} else {
