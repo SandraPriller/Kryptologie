@@ -5,14 +5,13 @@
 using namespace std;
 
 
-/*************************************************/
-/*												 */
-/*		    Author:   Sandra Priller		 	 */
-/*			Date:	  27.02.2019				 */
-/*			Program:  Libsodium					 */
-/*					  Functions	 				 */
-/*												 */
-/*************************************************/
+/*****************************************************/
+/*						     */
+/*		Author:   Sandra Priller	     */
+/*		Date:	  27.02.2019		     */
+/*		Program:  Libsodium Functions	     */
+/*						     */												 */
+/*****************************************************/
 
 
 string ToHex(void *const data, const size_t dataLength, string &dest) {  //adaptiert aus https://tweex.net/post/c-anything-tofrom-a-hex-string/
