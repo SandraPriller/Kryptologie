@@ -7,14 +7,12 @@
 using namespace std;
 
 
-/*************************************************/
-/*												 */
-/*			Author:   Sandra Priller			 */
-/*			Date:	  05.03.2019				 */
-/*			Program:  Challenge-Response-		 */
-/*					  Protokoll					 */
-/*					 							 */
-/*************************************************/
+/***************************************************/												 */
+/*		Author:   Sandra Priller	   */
+/*		Date:	  05.03.2019		   */
+/*		Program:  Challenge-Response-      */
+/*			  Protokoll		   */					 							 */
+/***************************************************/
 
 
 void ServerReadPublicKey(mpz_class e, mpz_class N) {
