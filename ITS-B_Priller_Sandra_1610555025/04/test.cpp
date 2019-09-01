@@ -8,14 +8,12 @@
 using namespace std;
 
 
-/*************************************************/
-/*												 */
-/*			Author:   Sandra Priller			 */
-/*			Date:	  28.02.2019				 */
-/*			Program:  Hybrid Encryption,		 */
-/*					  Diffie-Hellman			 */
-/*					 							 */
-/*************************************************/
+/***************************************************/												 */
+/*		Author:   Sandra Priller	   */
+/*		Date:	  28.02.2019		   */
+/*		Program:  Hybrid Encryption,	   */
+/*			  Diffie-Hellman	   */					 							 */
+/***************************************************/
 
 
 mpz_class GenerateRandomNumber() {
