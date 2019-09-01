@@ -6,13 +6,11 @@
 using namespace std;
 
 
-/*************************************************/
-/*												 */
-/*		    Author:   Sandra Priller		 	 */
-/*			Date:	  27.02.2019				 */
-/*			Program:  Libsodium					 */
-/*					  Functions	 				 */
-/*												 */
+/*************************************************/												 */
+/*		Author:   Sandra Priller	 */
+/*		Date:	  27.02.2019		 */
+/*		Program:  Libsodium		 */
+/*			  Functions	 	 */												 */
 /*************************************************/
 
 
