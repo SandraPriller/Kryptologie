@@ -5,17 +5,17 @@
 using namespace std;
 
 
-/*************************************************/
-/*			Author:   Sandra Priller			 */
-/*			Date:	  24.02.2019				 */
-/*			Program:  Generation of RSA-Key		 */
-/*					 							 */
-/*												 */
-/*************************************************/
+/*********************************************************/
+/*		  Author:   Sandra Priller		 */
+/*		  Date:	  24.02.2019			 */
+/*		  Program:  Generation of RSA-Key	 */
+/*					 		 */
+/*							 */
+/*********************************************************/
 
 
 mpz_class countDigit(mpz_class N) {			//Funktion adaptiert aus
-    mpz_class count = 0;					//https://www.geeksforgeeks.org/program-count-digits-integer-3-different-methods/
+    mpz_class count = 0;				//https://www.geeksforgeeks.org/program-count-digits-integer-3-different-methods/
 
     while(N != 0) {
         N = N/10;
