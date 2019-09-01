@@ -9,13 +9,12 @@
 using namespace std;
 
 
-/*************************************************/
-/*			Author:   Sandra Priller			 */
-/*			Date:	  17.02.2019				 */
-/*			Program:  Letter frequency & 		 */
-/*					  Kasiski-Test				 */
-/*												 */
-/*************************************************/
+/****************************************************/
+/*		Author:   Sandra Priller	    */
+/*		Date:	  17.02.2019		    */
+/*		Program:  Letter frequency & 	    */
+/*			  Kasiski-Test		    */												 */
+/****************************************************/
 
 
 
@@ -38,11 +37,11 @@ size_t TotalElements(vector<char> cipherComplete) {
 
 //======================================
 
-vector<char> OpenFile(ifstream &datei) {		//File öffnen und zeichenweises einlesen
+vector<char> OpenFile(ifstream &datei) {		//File Ã¶ffnen und zeichenweises einlesen
 	vector<char> cipherComplete;
 	char c = 0;
 
-	while(datei.get(c)) {						//Der C++ Programmierer, Ulrich Breymann, S. 420 (Zeile 46 und 47)
+	while(datei.get(c)) {				//Der C++ Programmierer, Ulrich Breymann, S. 420 (Zeile 46 und 47)
 		cipherComplete.push_back(c);
 	}
 
@@ -75,7 +74,7 @@ vector<int> PrimeFactors(int n) {		//Funktion adaptiert aus https://www.geeksfor
 
 //===========================
 
-int Gcd(int a, int b) {						//Funktion adaptiert aus https://www.geeksforgeeks.org/gcd-two-array-numbers/
+int Gcd(int a, int b) {				//Funktion adaptiert aus https://www.geeksforgeeks.org/gcd-two-array-numbers/
     if(a == 0)
         return b;
     return Gcd(b % a, a);
@@ -95,10 +94,10 @@ int FindGCD(vector<int> primes, int n) { 	//Funktion adaptiert aus https://www.g
 
 //===========================
 
-int KasiskiTest(vector<pair<string, int> > index) {		//Berechnen der Abstände von gleichen Buchstabenfolgen
-	vector<int> position, distances, primes;			//die Abstände faktorisieren, jener, der bei allen das
-	vector<int>::iterator i, k;							//gleiche Ergebnis liefert -> ergibt Key-Länge -> Bsp.: 3*2*5 und 3*7
-	vector<pair<string, int> >::const_iterator iter;	//-> Schlüssellänge 3 wahrscheinlich
+int KasiskiTest(vector<pair<string, int> > index) {		//Berechnen der AbstÃ¤nde von gleichen Buchstabenfolgen
+	vector<int> position, distances, primes;		//die AbstÃ¤nde faktorisieren, jener, der bei allen das
+	vector<int>::iterator i, k;				//gleiche Ergebnis liefert -> ergibt Key-LÃ¤nge -> Bsp.: 3*2*5 und 3*7
+	vector<pair<string, int> >::const_iterator iter;	//-> SchlÃ¼ssellÃ¤nge 3 wahrscheinlich
 	int keyLength = 0;
 
 	for(iter = index.begin(); iter != index.end(); ++iter) {
@@ -133,12 +132,12 @@ int KasiskiTest(vector<pair<string, int> > index) {		//Berechnen der Abstände vo
 //=============================
 
 vector<pair<string, int> >FindWords(string onlyLetters) {			//Suchen der Buchstabenfolgen, die im Text mehrmals
-	string gvl = "GVL", vlx = "VLX", ugo = "UGO";					//vorkommen (min. 3 Buchstaben)
+	string gvl = "GVL", vlx = "VLX", ugo = "UGO";				//vorkommen (min. 3 Buchstaben)
 	string::size_type pos_gvl = 0, pos_vlx = 0, pos_ugo = 0;
 	vector<pair<string, int> > index;
 
 
-	while(string::npos != (pos_gvl = onlyLetters.find(gvl, pos_gvl))) {		//https://stackoverflow.com/questions/5815838/how-do-i-find-all-the-positions-of-a-substring-in-a-string
+	while(string::npos != (pos_gvl = onlyLetters.find(gvl, pos_gvl))) {	//https://stackoverflow.com/questions/5815838/how-do-i-find-all-the-positions-of-a-substring-in-a-string
 		index.push_back(make_pair(gvl, pos_gvl));
 		++pos_gvl;
 	}
@@ -178,13 +177,13 @@ string OnlyLetters(string strCipher) {		//Alle Sonderzeichen und Spaces extrahie
 
 	//cout << "Anzahl Zeichen ohne Spaces und Sonderzeichen: " << count << endl;
 
-	//findWords(onlyLetter);												//Aufruf der Funktion, die nach gleichen Buchstabenfolgen sucht
+	//findWords(onlyLetter);		//Aufruf der Funktion, die nach gleichen Buchstabenfolgen sucht
 	return onlyLetter;
 }
 
 //============================
 
-string GroupTextByThree(string onlyLetter, int keyLength) {						//nach 3 Buchstaben Leerzeichen einfügen,
+string GroupTextByThree(string onlyLetter, int keyLength) {				//nach 3 Buchstaben Leerzeichen einfÃ¼gen,
 	for(size_t i = keyLength; i < onlyLetter.size(); i = i+(keyLength+1)) {		//dient der besseren Lesbarkeit
 		  onlyLetter.insert(i, " ");
 	}
@@ -195,7 +194,7 @@ string GroupTextByThree(string onlyLetter, int keyLength) {						//nach 3 Buchst
 //============================
 
 vector<char> ShowFirstRow(string onlyLetter, int keyLength) {		//alle 1., 4., 7. etc. Buchstaben in
-	vector<char> firstRow;											//Vektor speichern
+	vector<char> firstRow;						//Vektor speichern
 	vector<char>::iterator i;
 
 	for(size_t i = 0; i < onlyLetter.size(); i = i+keyLength) {
@@ -213,7 +212,7 @@ vector<char> ShowFirstRow(string onlyLetter, int keyLength) {		//alle 1., 4., 7.
 //=============================
 
 vector<char> ShowSecondRow(string onlyLetter, int keyLength) {		//alle 2., 5., 8. etc. Buchstaben in
-	vector<char> secondRow;											//in Vektor speichern
+	vector<char> secondRow;						//in Vektor speichern
 	vector<char>::iterator i;
 
 	for(size_t i = 1; i < onlyLetter.size(); i = i+keyLength) {
@@ -231,7 +230,7 @@ vector<char> ShowSecondRow(string onlyLetter, int keyLength) {		//alle 2., 5., 8
 //=============================
 
 vector<char> ShowThirdRow(string onlyLetter, int keyLength) {		//alle 3., 6., 9. etc. Buchstaben in
-	vector<char> thirdRow;											//in Vektor speichern
+	vector<char> thirdRow;						//in Vektor speichern
 	vector<char>::iterator i;
 
 	for(size_t i = 2; i < onlyLetter.size(); i = i+keyLength) {
@@ -249,7 +248,7 @@ vector<char> ShowThirdRow(string onlyLetter, int keyLength) {		//alle 3., 6., 9.
 //==============================
 
 bool SortData(pair<char, float> p1, pair<char, float> p2) {		//Sortieren der Vektoren in absteigender Reihenfolge
-	if(p1.second == 0 && p2.second == 0) 						//Funktion adaptiert aus http://www.cplusplus.com/forum/beginner/115630/
+	if(p1.second == 0 && p2.second == 0) 				//Funktion adaptiert aus http://www.cplusplus.com/forum/beginner/115630/
 		return(p1.first);
 	else
         return (p1.second > p2.second);
@@ -257,8 +256,8 @@ bool SortData(pair<char, float> p1, pair<char, float> p2) {		//Sortieren der Vek
 
 //==============================
 
-vector<pair<char, float> > CalculateFrequency(vector<char> letters) {	//Berechnen der rel. Häufigkeiten der
-	vector<pair<char, float> > relH(0);									//drei Vektoren
+vector<pair<char, float> > CalculateFrequency(vector<char> letters) {	//Berechnen der rel. HÃ¤ufigkeiten der
+	vector<pair<char, float> > relH(0);				//drei Vektoren
 	vector<pair<char, float> >::iterator iter;
 	int sum = 0;
 	int factor = 100;
@@ -296,7 +295,7 @@ int main(const int argc, const char *const argv[]) {
 
 
   if(argc < 2 || argc > 2) {
-	cerr << "Sie haben zu wenig/viele Argumente übergeben!" <<endl;
+	cerr << "Sie haben zu wenig/viele Argumente Ã¼bergeben!" <<endl;
 	cerr << "Argument 1: <Programmname>" <<endl;
 	cerr << "Argument 2: <Dateiname>" <<endl;
 	return 1;
@@ -306,7 +305,7 @@ int main(const int argc, const char *const argv[]) {
 	ifstream datei(argv[1]);
 
 	if(datei.bad()) {
-		cerr << "Datei konnte nicht geöffnet werden!" <<endl;
+		cerr << "Datei konnte nicht geÃ¶ffnet werden!" <<endl;
 		return 1;
 
 	} else {
