@@ -9,8 +9,7 @@ using namespace std;
 /*		  Author:   Sandra Priller		 */
 /*		  Date:	  24.02.2019			 */
 /*		  Program:  Generation of RSA-Key	 */
-/*					 		 */
-/*							 */
+/*					 		 */							 
 /*********************************************************/
 
 
