@@ -51,7 +51,7 @@ vector<char> OpenFile(ifstream &datei) {		//File öffnen und zeichenweises einle
 
 //======================================
 
-vector<int> PrimeFactors(int n) {		//Funktion adaptiert aus https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
+vector<int> PrimeFactors(int n) {			//Funktion adaptiert aus https://www.geeksforgeeks.org/print-all-prime-factors-of-a-given-number/
 	vector<int> primes;
 
 	while(n%2 == 0) {
@@ -74,7 +74,7 @@ vector<int> PrimeFactors(int n) {		//Funktion adaptiert aus https://www.geeksfor
 
 //===========================
 
-int Gcd(int a, int b) {				//Funktion adaptiert aus https://www.geeksforgeeks.org/gcd-two-array-numbers/
+int Gcd(int a, int b) {					//Funktion adaptiert aus https://www.geeksforgeeks.org/gcd-two-array-numbers/
     if(a == 0)
         return b;
     return Gcd(b % a, a);
@@ -82,7 +82,7 @@ int Gcd(int a, int b) {				//Funktion adaptiert aus https://www.geeksforgeeks.or
 
 //===========================
 
-int FindGCD(vector<int> primes, int n) { 	//Funktion adaptiert aus https://www.geeksforgeeks.org/gcd-two-array-numbers/
+int FindGCD(vector<int> primes, int n) { 		//Funktion adaptiert aus https://www.geeksforgeeks.org/gcd-two-array-numbers/
 	int result = 0;
 
     for(int i = 1; i < n; i++) {
